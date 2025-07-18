@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["firstname"] = $user["first_name"];
         $_SESSION["lastname"] = $user["last_name"];
 
-        // Redirect based on role
+        // Redireccionamiento basado en el rol del usuario
         if ($_SESSION["role"] === "admin") {
             header("Location: admin-dashboard.php");
         } else {
@@ -49,22 +49,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <div class="bg-white max-w-sm w-full rounded-lg shadow-md">
     <div class="p-6 border-b space-y-1">
         <h2 class="text-2xl font-bold">Login</h2>
-        <p class="text-sm text-gray-600">Enter your email below to login to your account</p>
+        <p class="text-sm text-gray-600">Escribe tu correo electrónico y contraseña para acceder a tu cuenta</p>
     </div>
 
     <div class="p-6">
         <form class="space-y-4" method="post">
             <div class="space-y-2">
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" id="email" name="email" placeholder="m@example.com" required
+                <input type="email" id="email" name="email" placeholder="correo@example.com" required
                        class="w-full border border-gray-300 rounded-md p-2"/>
             </div>
 
             <div class="space-y-2 relative">
                 <div class="flex items-center">
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <a href="#" class="ml-auto inline-block text-sm underline text-blue-600">Forgot your
-                        password?</a>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                    <a href="forgot-password.php" class="ml-auto inline-block text-sm underline text-blue-600">¿Olvidaste tu
+                        contraseña?</a>
                 </div>
                 <div class="relative">
                     <input type="password" id="password" name="password" required
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
 
         <div class="mt-4 text-center text-sm">
-            Don’t have an account? <a href="register.php" class="underline text-blue-600">Sign up</a>
+            ¿No tiene una cuenta? <a href="register.php" class="underline text-blue-600">Regístrate</a>
         </div>
     </div>
 </div>

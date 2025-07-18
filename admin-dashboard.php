@@ -1,4 +1,13 @@
-<?php session_start()?>
+<?php 
+session_start();
+
+if ($_SESSION["role"] !== "admin") {
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
+?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +36,7 @@
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
         <div class="bg-white rounded-lg shadow-md p-6 md:col-span-2">
-            <h2 class="text-xl font-semibold">Welcome back, John Doe!</h2>
+            <h2 class="text-xl font-semibold">Welcome back<?php echo htmlspecialchars($_SESSION["firstname"] . ' ' . $_SESSION["lastname"]); ?></h2>
             <p class="text-sm text-gray-600">Here's an overview of your account</p>
         </div>
 
